@@ -1,0 +1,262 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
+ */
+
+package com.mycompany.josh5;
+
+import java.util.Scanner;
+/**
+ *
+ * @author User
+ */
+public class Josh5 {
+
+
+public static Scanner input = new Scanner(System.in);
+public static String again;
+public static int discount=1;
+public static int choose,quantity=1;
+public static double total=0,pay;
+public static void menu(){
+System.out.println("/t/t/t/t+===================================+");
+System.out.println("/t/t/t/t         Udon Noodles Menu           ");
+System.out.println("/t/t/t/t   1.Kitsune Udon         Php. 83.00");
+System.out.println("/t/t/t/t   2.Sanuki Udon          Php. 79.00");
+System.out.println("/t/t/t/t   3.Yaki Udon Beef       Php. 85.00");
+System.out.println("/t/t/t/t   4.Yaki Udon Chicken    Php. 77.00");
+System.out.println("/t/t/t/t   5.Spicy Tori Rice      Php. 74.00");
+System.out.println("/t/t/t/t+====================================+");
+System.out.println("/t/t/t/t         Limited Udon Promo!         ");
+System.out.println("/t/t/t/t  -total order of Php 350.00 or more to get 1 ramen and 1 any tea");
+System.out.println("/t/t/t/t  -total order of Php 500.00 or more get 2 soba noodles and 5 any tea");
+System.out.println("/t/t/t/t   Note: Can avail both promos at the same time.");
+System.out.println("/t/t/t/t+====================================+");
+System.out.println("/t/t/t/t   We also offer discount to the following:");
+System.out.println("/t/t/t/t    if total cost is Php 350( 7% off )");
+System.out.println("/t/t/t/t    if total cose is Php 500( 10% off )");
+System.out.println("/t/t/t/t    Note: Discounts cannot be stacked");
+System.out.println("/t/t/t/t+====================================+");
+    }
+    
+        public static void order(){
+        System.out.println("Press 1: Kitsune Udon;  Press 2: Sanuki Udon;  Press 3: Yaki Udon Beef;  Press 4: Yaki Udon Chicken;  Press 5: Spicy Tori Rice;  Enter 6: CANCEL");     
+        System.out.print("Enter your order:");
+           choose = input.nextInt();
+        //conditions
+        switch (choose) {
+            case 1:
+                System.out.println("You choose Kitsune Udon");
+                System.out.print("Enter the quantity of your order:");
+                quantity =input.nextInt();
+                total = total +(quantity*89);
+                if(total >=350){        
+                    System.out.println("You have 1 free ramen noodles and 1 any tea");
+                }       if( total >=500){
+                    System.out.println("You have 2 soba noodles and 5 any tea");
+                }       System.out.println("Something you might want to add?");
+                System.out.println("Enter 1 for Yes and 2 for No : ");
+                again = input.next();
+                if(again.equalsIgnoreCase("1")){
+                    order();
+                }else{
+                    System.out.println("Enter 1 if total cost 350;    Enter 2 if total cost 500;");
+                    discount = input.nextInt();
+                    if(discount ==1){
+                        total = total*0.98;
+                    }
+                    if(discount ==2){
+                        total = total*0.90;
+                    }
+                    if(discount==3){
+                        System.out.println("No discount applicable");
+                        System.out.println("The bill is Php " + total + "0");
+                        
+                    }else
+                        System.out.println("The bill is Php " + total + "0");
+                    System.out.println("Enter Cash");
+                    pay = input.nextDouble();
+                    if(pay <total){
+                        System.out.println("Not enough cash");
+                    }else{
+                        total = pay-total;
+                        System.out.println("The change is Php " + total + "0");
+                        
+                    }
+                    
+                }       break;
+            case 2:
+                System.out.println("You Choose Sanuki Udon");
+                System.out.print("Enter the quantity of your order:");
+                quantity =input.nextInt();
+                total = total +(quantity*79);
+                if(total >=350){
+                    System.out.println("You have 1 free ramen noodles and 1 any tea");
+                }       if( total >=500){
+                    System.out.println("You have 2 soba noodles and 5 any tea");
+                }       System.out.println("Something you might want to add?");
+                System.out.println("Enter 1 for Yes and 2 for No : ");
+                again = input.next();
+                if(again.equalsIgnoreCase("1")){
+                    order();
+                }else{
+                    System.out.println("Enter 1 if total cost 350;     Enter 2 if total cost 500;");
+                    discount = input.nextInt();
+                    if(discount ==1){
+                        total = total*0.98;
+                    }
+                    if(discount ==2){
+                        total = total*0.90;
+                    }
+                    if(discount==3){
+                        System.out.println("No discount applicable");
+                    }else
+                        total = total-(discount*50);
+                    System.out.println("The bill is Php " + total + "0");
+                    System.out.println("Enter Cash");
+                    pay = input.nextDouble();
+                    if(pay <total){
+                        System.out.println("Not enough cash");
+                    }else{
+                        total = pay-total;
+                        System.out.println("The change is Php " + total + "0");
+                    }
+                    
+                }       break;
+            case 3:
+                System.out.println("You choose Yaki Udon Beef");
+                System.out.print("Enter the quantity of your order:");
+                quantity =input.nextInt();
+                total = total +(quantity*85);
+                if(total >=350){
+                    System.out.println("You have 1 free ramen noodles and 1 any tea");
+                }       if( total >=500){
+                    System.out.println("You have 2 soba noodles and 5 any tea");
+                }       System.out.println("Something you might want to add?");
+                System.out.println("Enter 1 for Yes and 2 for No : ");
+                again = input.next();
+                if(again.equalsIgnoreCase("1")){
+                    order();
+                }else{
+                    System.out.println("Enter 1 if total cost 350;     Enter 2 if total cost 500;");
+                    discount = input.nextInt();
+                    if(discount ==1){
+                        total = total*0.98;
+                    }
+                    if(discount ==2){
+                        total = total*0.90;
+                    }
+                    if(discount==3){
+                        System.out.println("No discount applicable");
+                    }else
+                        total = total-(discount*50);
+                    System.out.println("The bill is Php " + total + "0");
+                    System.out.println("Enter Cash");
+                    pay = input.nextDouble();
+                    if(pay <total){
+                        System.out.println("Not enough cash");
+                    }else{
+                        total = pay-total;
+                        System.out.println("The change is Php " + total + "0");
+                        
+                    }
+                             
+                }       break;
+            case 4:
+                System.out.println("You choose Yaki udon chicken");
+                System.out.print("Enter the quantity of your order:");
+                quantity =input.nextInt();
+                total = total +(quantity*77);
+                if(total >=350){
+                    System.out.println("You have 1 free ramen noodles and 1 any tea");
+                }       if( total >=500){
+                    System.out.println("You have 2 soba noodles and 5 any tea");
+                }       System.out.println("Something you might want to add?");
+                System.out.println("Enter 1 for Yes and 2 for No : ");
+                again = input.next();
+                if(again.equalsIgnoreCase("1")){
+                    order();
+                }else{
+                    System.out.println("Enter 1 if total cost 350;     Enter 2 if total cost 500;");
+                    discount = input.nextInt();
+                    if(discount ==1){
+                        total = total*0.98;
+                    }
+                    if(discount ==2){
+                        total = total*0.90;
+                    }
+                    if(discount==3){
+                        System.out.println("No discount applicable");
+                    }else
+                        total = total-(discount*50);
+                    System.out.println("The bill is Php " + total + "0");
+                    System.out.println("Enter Cash");
+                    pay = input.nextDouble();
+                    if(pay <total){
+                        System.out.println("Not enough cash");
+                    }else{
+                        total = pay-total;
+                        System.out.println("The change is Php " + total + "0");
+                        
+                    }
+                    
+                }       break;
+            case 5:
+                System.out.println("You Spicy Tori Rice");
+                System.out.print("Enter the quantity of your order:");
+                quantity =input.nextInt();
+                total = total +(quantity*74);
+                if(total >=350){
+                    System.out.println("You have 1 free ramen noodles and 1 any tea");
+                }       if( total >=500){
+                    System.out.println("You have 2 soba noodles and 5 any tea");
+                }       System.out.println("Something you might want to add?");
+                System.out.println("Enter 1 for Yes and 2 for No : ");
+                again = input.next();
+                if(again.equalsIgnoreCase("1")){
+                    order();
+                }else{
+                    System.out.println("Enter 1 if total cost 350;     Enter 2 if total cost 500;");
+                    discount = input.nextInt();
+                    if(discount ==1){
+                        total = total*0.98;
+                    }
+                    if(discount ==2){
+                        total = total*0.90;
+                    }
+                    if(discount==3){
+                        System.out.println("No discount applicable");
+                    }else{
+                        total = total-(discount*50);
+                    System.out.println("The bill is Php " + total + "0");
+                    System.out.println("Enter Cash");
+                    pay = input.nextDouble();
+                    if(pay <total){
+                        System.out.println("Not enough cash");
+                    }else
+                        total = pay-total;
+                       System.out.println("The change is Php " + total + "0");
+                    }  
+                    
+                }       break;
+            case 6:
+                System.exit(0);
+            
+            default:
+                System.out.println("Choose 1 to 6 only!");
+                order();
+                break;}
+                System.out.println("Order again?");
+                System.out.println("Enter 1 for Yes and 2 for No : ");
+                        again = input.next();
+                        if(again.equalsIgnoreCase("1")){
+                            total =total-total;
+                            order();}
+                        else{System.exit(0);}     
+            total=total-total;
+    }
+    public static void main(String[] args) {
+       menu();
+       order();            
+    }
+}
